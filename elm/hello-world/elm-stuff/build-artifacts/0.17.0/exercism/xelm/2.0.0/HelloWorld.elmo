@@ -1,3 +1,0 @@
-var _exercism$xelm$HelloWorld$helloWorld = function (name) {
-	return 'Hello, World!';
-};
