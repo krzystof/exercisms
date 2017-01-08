@@ -1,6 +1,4 @@
 ## Exercisms
 
-> My solutions to Exercism.io problems
-
-Currently working on Ruby stuff...
+Me working on [Exercism.io](http://exercism.io/) problems
 
