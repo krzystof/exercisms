@@ -1,20 +1,20 @@
 class Prime
   def self.nth(count)
-    raise unless count !== 0
+    raise ArgumentError unless count != 0
     self.new.find(count)
   end
 
   def initialize
     @found = []
-    @loop = 2
+    @loop_index = 2
   end
 
   def find(count)
     while count > @found.size
-      if is_prime?(@loop)
-        @found.push(@loop)
+      if is_prime?(@loop_index)
+        @found.push(@loop_index)
       end
-      @loop = @loop + 1
+      @loop_index = @loop_index + 1
     end
     @found.last
   end
