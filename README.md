@@ -11,5 +11,5 @@ lang             | completed
 :snake: python   |  2 / 65 :new:
 :sunglasses: js  |  2 / 68
 :elephant: php   |  2 / 38
-:hamster: go     |  0 / 76 :new: :point_left:
+:hamster: go     |  1 / 76
 
