@@ -6,9 +6,11 @@ defmodule Words do
   """
   @spec count(String.t) :: map
   def count(sentence) do
-    Map.new(remove_special_chars(sentence), fn x ->
-      { x, occurences_in(x, remove_special_chars(sentence)) }
-    end)
+    Map.new(
+      remove_special_chars(sentence), fn x ->
+        { x, occurences_in(x, remove_special_chars(sentence)) }
+      end
+    )
   end
 
   defp occurences_in(needle, haystack) do
