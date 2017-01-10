@@ -1,10 +1,12 @@
 var Hamming = function Hamming() {}
 
 Hamming.prototype = {
-    compute: function (strandA, strandB) {
-        var differences = 0
+    compute: (strandA, strandB) => {
+        if (strandA.length !== strandB.length) {
+            throw new Error('DNA strands must be of equal length.')
+        }
 
-        return differences
+        return strandA.split('').filter((letter, pos) => letter !== strandB[pos]).length
     }
 }
 
