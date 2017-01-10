@@ -8,11 +8,9 @@ defmodule RunLengthEncoder do
   """
   @spec encode(String.t) :: String.t
   def encode(string) do
-    String.split(string, "") |> count_characters |> Enum.join
-  end
-
-  def count_characters(list) do
-    Enum.map()
+    String.split(string, "")
+    # ???
+    end)
   end
 
   @spec decode(String.t) :: String.t

@@ -8,6 +8,7 @@ ExUnit.configure exclude: :pending, trace: true
 defmodule RunLengthEncoderTest do
   use ExUnit.Case
 
+  @tag :pending
   test "empty string returns empty" do
     assert RunLengthEncoder.encode("") === ""
   end

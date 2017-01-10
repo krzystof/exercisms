@@ -7,9 +7,8 @@ Me working on [Exercism.io](http://exercism.io/) problems
 lang             | completed
 -----------------|--------------------
 :gem: ruby       | 13 / 84
-:droplet: elixir |  5 / 65
-:snake: python   |  2 / 65 :new:
+:droplet: elixir |  4 / 65 :point_left: run length encoding in progress
+:snake: python   |  2 / 65 :new: (clock)
 :sunglasses: js  |  2 / 68
 :elephant: php   |  2 / 38
 :hamster: go     |  1 / 76
-
