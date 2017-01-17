@@ -1,23 +1,27 @@
+import math
 
 class Clock:
 
     def __init__(self, hour, minute):
-        self.hour = hour
-        self.minute = minute
+        self.minute = self.to_base(60, minute)
+        self.hour = self.to_base(24, hour + math.floor(minute / 60))
+
+    def to_base(self, base, units):
+        if units > (base - 1):
+            return units % base
+        elif units < 0:
+            return units - base * math.floor(units / base)
+        else:
+            return units
+
+    def add(self, minutes):
+        return Clock(self.hour, self.minute + minutes)
 
     def __str__(self):
-        return self.hourToString() + ':' + self.minuteToString()
+        return "%s:%s" % (self.pad_digit(self.hour), self.pad_digit(self.minute))
 
-    def hourToString(self):
-        if self.hour == 24:
-            return '00'
-        elif self.hour < 10:
-            return '0' + str(self.hour)
-        else:
-            return str(self.hour)
+    def __eq__(self, other):
+        return self.hour == other.hour and self.minute == other.minute
 
-    def minuteToString(self):
-        if self.minute < 10:
-            return '0' + str(self.minute)
-        else:
-            return str(self.minute)
+    def pad_digit(self, digit):
+        return "0%s" % digit if digit < 10 else str(digit)
