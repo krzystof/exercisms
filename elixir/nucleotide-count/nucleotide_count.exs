@@ -14,7 +14,10 @@ defmodule DNA do
   """
   @spec count([char], char) :: non_neg_integer
   def count(strand, nucleotide) do
-
+    if not Enum.member?(@nucleotides, nucleotide) || not only_nucleotides(strand) do
+      raise ArgumentError
+    end
+    Enum.count strand, &(&1 == nucleotide)
   end
 
 
@@ -28,6 +31,13 @@ defmodule DNA do
   """
   @spec histogram([char]) :: map
   def histogram(strand) do
+    if not only_nucleotides(strand) do
+      raise ArgumentError
+    end
+    Enum.map(@nucleotides, fn(n) -> %{n => count(strand, n)} end) |> List.foldl(%{}, &Map.merge/2)
+  end
 
+  defp only_nucleotides(strand) do
+    strand |> Enum.all?(&(Enum.member?(@nucleotides, &1)))
   end
 end
