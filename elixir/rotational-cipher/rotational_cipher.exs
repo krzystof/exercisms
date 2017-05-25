@@ -5,17 +5,14 @@ defmodule RotationalCipher do
   def rotate(text, shift) do
     text
     |> String.to_charlist()
-    |> shifted(shift)
+    |> Enum.map(&shift_letter(&1, shift))
     |> to_string
   end
 
-  defp shifted(letters, shift) do
-    letters
-    |> Enum.map(&shift_one(&1))
-    |> Enum.map(&(Enum.at(@alphabet, &1 + shift)))
-  end
-
-  defp shift_one(letter) do
-    Enum.find_index(@alphabet, &(&1 == letter))
+  defp shift_letter(letter, 26) do letter end
+  defp shift_letter(letter, shift) do
+    index = Enum.find_index(@alphabet, &(&1 == letter))
+    new_index = Kernel.rem(index + shift, 26)
+    Enum.at(@alphabet, new_index)
   end
 end
